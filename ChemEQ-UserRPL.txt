@@ -1,0 +1,188 @@
+\<< "Informe o numero de moleculas" {"Moleculas="} {1 0}{}{} INFORM DROP 'NM' STO 'NM(1)' EVAL 'NM' STO
+"Informe o numero de atomos" {"Atomos="}{1 0}{}{} INFORM DROP 'NA' STO 'NA(1)' EVAL 'NA' STO
+  1 NM FOR I
+    IF I 1 ==
+    THEN 
+     "Molecula 1"
+    END
+    IF I 2 ==
+    THEN 
+     "Molecula 2"
+    END
+    IF I 3 ==
+    THEN 
+     "Molecula 3"
+    END
+    IF I 4 ==
+    THEN 
+     "Molecula 4"
+    END
+    IF I 5 ==
+    THEN 
+     "Molecula 5"
+    END
+    IF I 6 ==
+    THEN 
+     "Molecula 6"
+    END
+    IF I 7 ==
+    THEN 
+     "Molecula 7"
+    END
+    IF I 8 ==
+    THEN 
+     "Molecula 8"
+    END
+    IF NA 2. ==
+    THEN 
+     { "Atomo1=" "Atomo2=" } { 1. 0. }
+    END
+    IF NA 3. ==
+    THEN 
+     { "Atomo1=" "Atomo2=" "Atomo3=" } { 1. 0. }
+    END
+    IF NA 4. ==
+    THEN 
+     { "Atomo1=" "Atomo2=" "Atomo3=" "Atomo4=" } { 1. 0. }
+    END
+    IF NA 5. ==
+    THEN 
+     { "Atomo1=" "Atomo2=" "Atomo3=" "Atomo4=" "Atomo5=" } { 2. 0. }
+    END
+    IF NA 6. ==
+    THEN 
+     { "Atomo1=" "Atomo2=" "Atomo3=" "Atomo4=" "Atomo5=" "Atomo6=" } { 2. 0. }
+    END
+    IF NA 7. ==
+    THEN 
+     { "Atomo1=" "Atomo2=" "Atomo3=" "Atomo4=" "Atomo5=" "Atomo6=" "Atomo7=" } { 2. 0. }
+    END
+    IF NA 8. ==
+    THEN 
+     { "Atomo1=" "Atomo2=" "Atomo3=" "Atomo4=" "Atomo5=" "Atomo6=" "Atomo7=" "Atomo8=" } { 2. 0. }
+    END 
+  { } { } INFORM DROP AXL
+    IF I 1 >
+    THEN
+     AUGMENT
+    END
+  NEXT
+'M' STO
+"Numero inicial de cada atomo"
+  IF NA 2. ==
+  THEN 
+   { "Atomo1=" "Atomo2=" } { 1. 0. }
+  END
+  IF NA 3. ==
+  THEN 
+   { "Atomo1=" "Atomo2=" "Atomo3=" } { 1. 0. }
+  END
+  IF NA 4. ==
+  THEN 
+   { "Atomo1=" "Atomo2=" "Atomo3=" "Atomo4=" } { 1. 0. }
+  END
+  IF NA 5. ==
+  THEN 
+   { "Atomo1=" "Atomo2=" "Atomo3=" "Atomo4=" "Atomo5=" } { 2. 0. }
+  END
+  IF NA 6. ==
+  THEN 
+   { "Atomo1=" "Atomo2=" "Atomo3=" "Atomo4=" "Atomo5=" "Atomo6=" } { 2. 0. }
+  END
+  IF NA 7. ==
+  THEN 
+   { "Atomo1=" "Atomo2=" "Atomo3=" "Atomo4=" "Atomo5=" "Atomo6=" "Atomo7=" } { 2. 0. }
+  END
+  IF NA 8. ==
+  THEN 
+   { "Atomo1=" "Atomo2=" "Atomo3=" "Atomo4=" "Atomo5=" "Atomo6=" "Atomo7=" "Atomo8=" } { 2. 0. }
+  END 
+{ } { } INFORM DROP AXL 'MI' STO
+"Informe T e R" { "T=" "R=" } { 1. 0. } { } { } INFORM DROP 'L' STO 
+'L(1.)' EVAL 'T' STO 
+'L(2.)' EVAL 'R' STO 
+M \->ROW 'I' STO CLEAR 
+M \->COL 'J' STO CLEAR 
+"Insira os valores de delta G"
+  IF I 2. ==
+  THEN 
+   { "\GDG1" "\GDG2" } { 1. 0. }
+  END
+  IF I 3. ==
+  THEN 
+   { "\GDG1" "\GDG2" "\GDG3" } { 1. 0. }
+  END
+  IF I 4. ==
+  THEN 
+   { "\GDG1" "\GDG2" "\GDG3" "\GDG4" } { 1. 0. }
+  END
+  IF I 5. ==
+  THEN
+   { "\GDG1" "\GDG2" "\GDG3" "\GDG4" "\GDG5" } { 2. 0. }
+  END
+  IF I 6. ==
+  THEN
+   { "\GDG1" "\GDG2" "\GDG3" "\GDG4" "\GDG5" "\GDG6" } { 2. 0. }
+  END
+  IF I 7. ==
+  THEN
+   { "\GDG1" "\GDG2" "\GDG3" "\GDG4" "\GDG5" "\GDG6" "\GDG7" } { 2. 0. }
+  END
+  IF I 8. ==
+  THEN
+   { "\GDG1" "\GDG2" "\GDG3" "\GDG4" "\GDG5" "\GDG6" "\GDG7" "\GDG8" } { 2. 0. }
+  END { } { } INFORM DROP 'LG' STO 
+'n1' PURGE 'n2' PURGE 'n3' PURGE 'n4' PURGE 'n5' PURGE 'n6' PURGE 'n7' PURGE 'n8' PURGE 'nT' PURGE 
+{n1 n2 n3 n4 n5 n6 n7 n8} 'N' STO
+1 J 
+  FOR J1
+   0
+   1 I
+    FOR I1
+     'M(I1,J1)*N(I1)' EVAL +
+    NEXT
+   'MI(J1)' EVAL =
+  NEXT
+'LA1' PURGE 'LA2' PURGE 'LA3' PURGE 'LA4' PURGE 'LA5' PURGE 'LA6' PURGE 'LA7' PURGE 'LA8' PURGE
+{LA1 LA2 LA3 LA4 LA5 LA6 LA7 LA8} 'LA' STO
+1 I 
+  FOR I1
+   'LG(I1)/R/T' EVAL
+   'LN(N(I1)/nT)' EVAL +
+   1 J 
+    FOR J1
+     'M(I1,J1)*LA(J1)' EVAL +
+    NEXT
+   0 =
+  NEXT
+nT
+0
+1 I 
+  FOR I1
+   'N(I1)' EVAL +
+  NEXT
+=
+'J+I+1' EVAL COL\->
+1 I 
+  FOR I1
+   'N(I1)' EVAL
+  NEXT
+nT
+1 J 
+  FOR J1
+   'LA(J1)' EVAL
+  NEXT
+'J+I+1' EVAL COL\->
+1 'I+J+1' EVAL 
+  FOR I1
+   1
+  NEXT
+'J+I+1' EVAL COL\->
+MSLV
+AXL 'MR' STO CLEAR
+1. 'I' EVAL
+  FOR J1 
+   'N(J1)' EVAL 'MR(J1)' EVAL =
+  NEXT
+'nT' 'MR(I+1)' EVAL =
+\>>
